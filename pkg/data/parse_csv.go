@@ -2,6 +2,7 @@ package data
 
 import (
 	"encoding/csv"
+	"fmt"
 	"io"
 	"os"
 	"valjean/proxy/subscribe/pkg/log"
@@ -29,11 +30,17 @@ func ParseCsvForMap(filepath string, key int, value int) *map[string]string {
 			log.Fatal("key: %d or value: %d column equal ", key, value)
 		}
 
+		if len(record) < 4 {
+			log.Fatal("the record is error: %s", reader)
+			continue
+		}
+
 		if key > len(record) || value > len(record) {
 			log.Fatal("key: %d or value: %d column bigger than total ", key, value)
 		}
 
-		k := record[key-1]
+		// key: 2,3 列作为key, 4: 作为value
+		k := fmt.Sprintf("%s-%s", record[key-1], record[key])
 		v := record[value-1]
 
 		if len(k) == 0 || len(v) == 0 {

@@ -60,7 +60,8 @@ func InitEngine() *gin.Engine {
 func InitBiz() {
 	userPath := Cnf.Biz.UserPath
 	if len(userPath) > 0 {
-		User = data.ParseCsvForMap(userPath, 1, 2)
+		// user,conf,data
+		User = data.ParseCsvForMap(userPath, 2, 4)
 	}
 
 }

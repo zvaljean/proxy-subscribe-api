@@ -11,7 +11,7 @@ func main() {
 
 	config.InitCnf()
 	config.InitLog()
-	//config.InitBiz()
+	config.InitBiz()
 	server := config.InitEngine()
 
 	/**

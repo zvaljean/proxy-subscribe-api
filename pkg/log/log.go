@@ -52,13 +52,13 @@ func tip(temp string) string {
 // FatalCheck, fail will call os.Exit
 func FatalCheck(err error, msg string) {
 	if err != nil {
-		Fatal(tip(msg), err.Error())
+		Fatal(msg, err.Error())
 	}
 }
 
 func ErrorCheck(err error, msg string) bool {
 	if err != nil {
-		Error(tip(msg), err.Error())
+		Error(msg, err.Error())
 		return true
 	}
 	return false
@@ -73,20 +73,20 @@ func Zap() *zap.SugaredLogger {
 
 // Info : tip + newline
 func Info(format string, args ...interface{}) {
-	zap.S().Infof(tip(format), args)
+	zap.S().Infof(tip(format), args...)
 }
 
 // Error : tip + newline
 func Error(format string, args ...interface{}) {
-	zap.S().Errorf(tip(format), args)
+	zap.S().Errorf(tip(format), args...)
 }
 
 // Debug : tip + newline
 func Debug(format string, args ...interface{}) {
-	zap.S().Debugf(tip(format), args)
+	zap.S().Debugf(tip(format), args...)
 }
 
 // Fatal : tip + newline
 func Fatal(format string, args ...interface{}) {
-	zap.S().Fatalf(tip(format), args)
+	zap.S().Fatalf(tip(format), args...)
 }

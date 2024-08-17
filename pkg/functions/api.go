@@ -1,12 +1,12 @@
 package functions
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"valjean/proxy/subscribe/pkg/config"
 	"valjean/proxy/subscribe/pkg/log"
 )
-
-var wallet = map[string]int{}
 
 // 用户获取proxy相关配置信息
 func UserConf(ctx *gin.Context) {
@@ -20,6 +20,19 @@ func UserConf(ctx *gin.Context) {
 		return
 	}
 
-	log.Info(" user: %s, conf: %s", user, conf)
+	// 根据用户名获取配置
+	// user-conf,data
+	key := fmt.Sprintf("%s-%s", user, conf)
+	//key := user
+	value, exist := (*config.User)[key]
+	if !exist {
+		log.Info("user: %s, not exist", user)
+		ctx.String(http.StatusNotFound, "")
+		return
+	}
+
+	log.Info("user: %s, value: %s", user, value)
+
+	ctx.String(http.StatusOK, value)
 
 }
