@@ -1,6 +1,7 @@
 package config
 
 import (
+	"flag"
 	"fmt"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
@@ -15,8 +16,19 @@ var (
 )
 
 func InitCnf() {
+	// 定义命令行参数
+	var (
+		configPath = flag.String("path", "configs", "config path, eg: --path=./configs")
+	)
 
-	cnf, err := LoadConfig("configs")
+	// 解析命令行参数
+	flag.Parse()
+
+	//if len(*configPath) == 0 {
+	//	*configPath = "configs"
+	//}
+
+	cnf, err := LoadConfig(*configPath)
 	if err != nil {
 		fmt.Printf(" error -> %v", err)
 	}

@@ -1,0 +1,13 @@
+[Unit]
+Description=proxy subscribe
+    
+[Service]
+User=root
+ExecStart=/opt/service/proxy/bin/proxy --path /opt/service/proxy/configs
+Restart=on-abort
+LimitCORE=infinity
+LimitNOFILE=infinity
+LimitNPROC=infinity
+    
+[Install]
+WantedBy=multi-user.target

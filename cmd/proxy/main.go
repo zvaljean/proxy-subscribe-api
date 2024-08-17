@@ -20,5 +20,5 @@ func main() {
 	server.GET("/proxy/:user/:conf", functions.UserConf)
 
 	err := server.Run(fmt.Sprintf(":%d", config.Cnf.Server.Port))
-	log.FatalCheck(err, "web boot error!")
+	log.FatalCheck(err, "proxy boot error!")
 }

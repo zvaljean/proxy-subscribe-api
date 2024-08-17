@@ -1,5 +1,5 @@
 MAKEFLAGS += --no-builtin-rules
-BINS = web
+BINS = proxy
 BUILD_PATH := $(shell basename $$(pwd))
 BIN_EXTENSION :=
 ifeq ($(OS), windows)
