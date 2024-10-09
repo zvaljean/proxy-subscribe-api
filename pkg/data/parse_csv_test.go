@@ -4,6 +4,8 @@ import (
 	"testing"
 )
 
+var filepath = "/home/valjean/workspace/own/code/golang/proxy-subscribe/configs/user.csv"
+
 func TestParseCsv(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -11,7 +13,7 @@ func TestParseCsv(t *testing.T) {
 	}{
 		{
 			name:     "parse csv file",
-			filepath: "/home/valjean/workspace/ourpalm/code/golang/mock-api/configs/biz.csv",
+			filepath: filepath,
 		},
 	}
 	for _, tt := range tests {
@@ -39,7 +41,7 @@ func TestParseCsvForMap(t *testing.T) {
 		{
 			name: "test parse csv for map",
 			args: args{
-				filepath: "/home/valjean/workspace/ourpalm/code/golang/mock-api/configs/biz.csv",
+				filepath: filepath,
 				key:      1,
 				value:    2,
 			},

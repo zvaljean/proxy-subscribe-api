@@ -2,9 +2,11 @@ package data
 
 import (
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"io"
 	"os"
+	"strings"
 	"valjean/proxy/subscribe/pkg/log"
 )
 
@@ -15,9 +17,9 @@ func ParseCsvForMap(filepath string, key int, value int) *map[string]string {
 	file, err := os.Open(filepath)
 	log.FatalCheck(err, "open file fail!")
 	defer file.Close()
-
 	// 创建一个新的CSV reader
 	reader := csv.NewReader(file)
+	reader.FieldsPerRecord = 4
 	context := make(map[string]string)
 	for {
 		record, err := reader.Read()
@@ -25,13 +27,25 @@ func ParseCsvForMap(filepath string, key int, value int) *map[string]string {
 			break
 		}
 
-		log.FatalCheck(err, "write error!")
+		// 解析中有注释行，预见不符合的列数，跳过
+		if er, ok := err.(*csv.ParseError); ok {
+			if errors.As(er.Err, &csv.ErrFieldCount) {
+				continue
+			}
+		}
+
+		log.FatalCheck(err, "read error!")
 		if key == value {
 			log.Fatal("key: %d or value: %d column equal ", key, value)
 		}
 
 		if len(record) < 4 {
-			log.Fatal("the record is error: %s", reader)
+			log.Warn("the record is error: %s", reader)
+			continue
+		}
+		// 跳过#注释
+		// https://www.ascii-code.com/35
+		if strings.TrimSpace(record[0])[0] == 35 {
 			continue
 		}
 

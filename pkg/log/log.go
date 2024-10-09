@@ -81,6 +81,11 @@ func Error(format string, args ...interface{}) {
 	zap.S().Errorf(tip(format), args...)
 }
 
+// Warn : tip + newline
+func Warn(format string, args ...interface{}) {
+	zap.S().Warnf(tip(format), args...)
+}
+
 // Debug : tip + newline
 func Debug(format string, args ...interface{}) {
 	zap.S().Debugf(tip(format), args...)

@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"valjean/proxy/subscribe/pkg/config"
 	"valjean/proxy/subscribe/pkg/log"
+	"valjean/proxy/subscribe/pkg/utils"
 )
 
 // 用户获取proxy相关配置信息
@@ -31,8 +32,29 @@ func UserConf(ctx *gin.Context) {
 		return
 	}
 
-	log.Info("user: %s, value: %s", user, value)
+	flag := parseFlag(conf)
+
+	log.Info("user: %s, value: %s, flag: %s", user, value, flag)
+
+	/**
+	*	0. base64
+	*	1. base64 decode
+	 */
+	if flag == "1" {
+		value = utils.Base64toStr(value)
+	}
 
 	ctx.String(http.StatusOK, value)
 
+}
+
+// 2410091
+// 241009
+func parseFlag(conf string) string {
+	length := len(conf)
+	if length < 7 {
+		return "0"
+	}
+	flag := conf[len(conf)-1]
+	return string(flag)
 }
