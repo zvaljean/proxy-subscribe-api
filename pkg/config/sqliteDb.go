@@ -1,10 +1,9 @@
 package config
 
 import (
+	"gorm.io/gorm"
 	"time"
 	"valjean/proxy/subscribe/pkg/entity"
-
-	"gorm.io/gorm"
 	"valjean/proxy/subscribe/pkg/log"
 )
 

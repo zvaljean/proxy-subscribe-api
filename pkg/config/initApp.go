@@ -71,24 +71,13 @@ func InitEngine() *gin.Engine {
 }
 
 func InitDb() {
-	//var gormLogger logger.Interface
-	//
-	//if Cnf.Log.Debug {
-	//	gormLogger = logger.Default
-	//} else {
-	//	gormLogger = logger.Discard
-	//}
-	logger := zapgorm2.New(zap.L())
 
 	cnf := &gorm.Config{
-		//Logger: gormLogger,
-		Logger: logger,
+		Logger: zapgorm2.New(zap.L()),
 	}
 
 	db, err := gorm.Open(sqlite.Open(Cnf.Server.DbPath), cnf)
-	log.FatalCheck(err, "failed to connect sqliteCnf")
-
-	//Db = db
+	log.FatalCheck(err, "failed to connect sqlite db: "+Cnf.Server.DbPath)
 
 	Db = NewSqliteDb(db)
 	Db.InitDb()
