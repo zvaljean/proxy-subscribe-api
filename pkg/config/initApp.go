@@ -5,6 +5,10 @@ import (
 	"fmt"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
+	"moul.io/zapgorm2"
 	"time"
 	"valjean/proxy/subscribe/pkg/data"
 	"valjean/proxy/subscribe/pkg/log"
@@ -13,6 +17,7 @@ import (
 var (
 	Cnf  Config
 	User *map[string]string
+	Db   *SqliteDb
 )
 
 func InitCnf() {
@@ -63,6 +68,30 @@ func InitEngine() *gin.Engine {
 	server.Use(ginzap.RecoveryWithZap(log.ZapL(), true))
 
 	return server
+}
+
+func InitDb() {
+	//var gormLogger logger.Interface
+	//
+	//if Cnf.Log.Debug {
+	//	gormLogger = logger.Default
+	//} else {
+	//	gormLogger = logger.Discard
+	//}
+	logger := zapgorm2.New(zap.L())
+
+	cnf := &gorm.Config{
+		//Logger: gormLogger,
+		Logger: logger,
+	}
+
+	db, err := gorm.Open(sqlite.Open(Cnf.Server.DbPath), cnf)
+	log.FatalCheck(err, "failed to connect sqliteCnf")
+
+	//Db = db
+
+	Db = NewSqliteDb(db)
+	Db.InitDb()
 }
 
 /**

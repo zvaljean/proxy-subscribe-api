@@ -9,7 +9,7 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-const LogPre = "#----#"
+const LogPre = "---->"
 
 func InitLog(logName string) {
 	writeSyncer := zapcore.AddSync(

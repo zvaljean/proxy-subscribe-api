@@ -12,7 +12,8 @@ type logCnf struct {
 }
 
 type server struct {
-	Port int `mapstructure:"port"`
+	Port   int    `mapstructure:"port"`
+	DbPath string `mapstructure:"dbPath"`
 }
 
 type bizCnf struct {
