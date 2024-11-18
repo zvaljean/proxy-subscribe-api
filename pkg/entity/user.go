@@ -4,6 +4,12 @@ import (
 	"gorm.io/gorm"
 )
 
+type UserDto struct {
+	Type  int
+	Token string
+	Path  string
+}
+
 type User struct {
 	gorm.Model
 	Name   string

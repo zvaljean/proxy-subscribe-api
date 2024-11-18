@@ -24,13 +24,24 @@ func (u *UserModel) CreateItem(item *User) (bool, *errno.BizCode) {
 
 }
 
-func (u *UserModel) FindItemByToken(token string) (*User, error) {
+func (u *UserModel) FindUserByTokenTypePath(param *UserDto) (*User, error) {
+
+	dst := &User{}
+	result := u.db.Where(param).Find(&dst)
+	//"token = ? and type = ? and path = ?", param.Type, param.Token, param.Path).Find(&dst)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return dst, nil
+}
+func (u *UserModel) FindUserByToken(token string) (*User, error) {
 
 	dst := &User{}
 	result := u.db.Model(&User{}).Where("token = ?", token).Find(&dst)
 
-	if err := result.Error; err != nil {
-		return nil, err
+	if result.Error != nil {
+		return nil, result.Error
 	}
 	return dst, nil
 }

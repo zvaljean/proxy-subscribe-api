@@ -30,5 +30,8 @@ func Base64toStr(data string) string {
 		return ""
 	}
 	return string(str)
+}
 
+func StrtoBase64(data string) string {
+	return base64.StdEncoding.EncodeToString([]byte(data))
 }
