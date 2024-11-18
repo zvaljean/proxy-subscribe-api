@@ -3,6 +3,7 @@ package model
 import (
 	"gorm.io/gorm"
 	"zvaljean/proxy-subscribe-api/pkg/common/errno"
+	. "zvaljean/proxy-subscribe-api/pkg/entity"
 )
 
 type UserModel struct {
