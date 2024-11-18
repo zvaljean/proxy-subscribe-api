@@ -1,10 +1,10 @@
 package service
 
 import (
-	"valjean/proxy/subscribe/pkg/common/errno"
-	"valjean/proxy/subscribe/pkg/entity"
-	"valjean/proxy/subscribe/pkg/log"
-	"valjean/proxy/subscribe/pkg/model"
+	"zvaljean/proxy-subscribe-api/pkg/common/errno"
+	"zvaljean/proxy-subscribe-api/pkg/entity"
+	"zvaljean/proxy-subscribe-api/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/model"
 )
 
 type UserService struct {

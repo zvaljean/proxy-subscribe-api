@@ -2,7 +2,7 @@ package utils
 
 import (
 	"net/http"
-	"valjean/proxy/subscribe/pkg/common/errno"
+	"zvaljean/proxy-subscribe-api/pkg/common/errno"
 
 	"github.com/gin-gonic/gin"
 )

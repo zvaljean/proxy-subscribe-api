@@ -10,8 +10,8 @@ import (
 	"gorm.io/gorm"
 	"moul.io/zapgorm2"
 	"time"
-	"valjean/proxy/subscribe/pkg/data"
-	"valjean/proxy/subscribe/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/data"
+	"zvaljean/proxy-subscribe-api/pkg/log"
 )
 
 var (

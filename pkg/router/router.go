@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"valjean/proxy/subscribe/pkg/config"
-	"valjean/proxy/subscribe/pkg/controller"
+	"zvaljean/proxy-subscribe-api/pkg/config"
+	"zvaljean/proxy-subscribe-api/pkg/controller"
 )
 
 func InitRouter(g *gin.Engine) {

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"valjean/proxy/subscribe/pkg/config"
-	"valjean/proxy/subscribe/pkg/log"
-	"valjean/proxy/subscribe/pkg/utils"
+	"zvaljean/proxy-subscribe-api/pkg/config"
+	"zvaljean/proxy-subscribe-api/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/utils"
 )
 
 // 用户获取proxy相关配置信息

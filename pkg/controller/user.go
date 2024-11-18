@@ -6,12 +6,12 @@ import (
 	"gorm.io/gorm"
 	"net/http"
 	"strconv"
-	"valjean/proxy/subscribe/pkg/config"
-	"valjean/proxy/subscribe/pkg/entity"
-	"valjean/proxy/subscribe/pkg/log"
-	"valjean/proxy/subscribe/pkg/model"
-	"valjean/proxy/subscribe/pkg/service"
-	"valjean/proxy/subscribe/pkg/utils"
+	"zvaljean/proxy-subscribe-api/pkg/config"
+	"zvaljean/proxy-subscribe-api/pkg/entity"
+	"zvaljean/proxy-subscribe-api/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/model"
+	"zvaljean/proxy-subscribe-api/pkg/service"
+	"zvaljean/proxy-subscribe-api/pkg/utils"
 )
 
 type UserController struct {

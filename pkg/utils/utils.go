@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"math/rand"
 	"time"
-	"valjean/proxy/subscribe/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/log"
 )
 
 // 生成指定长度的随机字符串

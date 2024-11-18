@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"valjean/proxy/subscribe/pkg/config"
-	"valjean/proxy/subscribe/pkg/log"
-	"valjean/proxy/subscribe/pkg/router"
+	"zvaljean/proxy-subscribe-api/pkg/config"
+	"zvaljean/proxy-subscribe-api/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/router"
 )
 
 func main() {

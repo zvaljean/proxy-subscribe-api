@@ -3,8 +3,8 @@ package config
 import (
 	"gorm.io/gorm"
 	"time"
-	"valjean/proxy/subscribe/pkg/entity"
-	"valjean/proxy/subscribe/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/entity"
+	"zvaljean/proxy-subscribe-api/pkg/log"
 )
 
 type SqliteDb struct {

@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 	"strings"
-	"valjean/proxy/subscribe/pkg/log"
+	"zvaljean/proxy-subscribe-api/pkg/log"
 )
 
 // ParseCsvForMap 解析csv文件，生成map数据，key,value为要获取的列数,从1开始

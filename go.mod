@@ -1,4 +1,4 @@
-module valjean/proxy/subscribe
+module zvaljean/proxy-subscribe-api
 
 go 1.21
 
