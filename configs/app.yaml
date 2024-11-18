@@ -6,6 +6,6 @@ log:
   path: /tmp/app.log
   debug: true
 biz:
-  userPath: ./configs/user.csv
+#  userPath: ./configs/user.csv
   # Millisecond
   busy: 0
